@@ -18,5 +18,8 @@
     <ClCompile Include="..\Sources\Entry.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="..\Thirdparty\GLAD\src\glad.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
