@@ -36,3 +36,5 @@
 *.db
 *.tlog
 *.idb
+*.ipdb
+*.iobj
