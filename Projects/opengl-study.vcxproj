@@ -22,6 +22,10 @@
     <ClCompile Include="..\Sources\Entry.cpp" />
     <ClCompile Include="..\Thirdparty\GLAD\src\glad.c" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Resources\Shaders\BasicPS.glsl" />
+    <None Include="..\Resources\Shaders\BasicVS.glsl" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{3CF830E3-D2B1-4A7C-BFFE-3FF9AFC5C4AF}</ProjectGuid>
