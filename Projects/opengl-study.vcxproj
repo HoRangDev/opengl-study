@@ -20,11 +20,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Sources\Entry.cpp" />
+    <ClCompile Include="..\Sources\Shader.cpp" />
     <ClCompile Include="..\Thirdparty\GLAD\src\glad.c" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Resources\Shaders\BasicPS.glsl" />
     <None Include="..\Resources\Shaders\BasicVS.glsl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Sources\Shader.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
