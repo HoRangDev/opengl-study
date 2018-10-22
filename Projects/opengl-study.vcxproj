@@ -119,7 +119,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\Thirdparty\stb_image;$(SolutionDir)..\Thirdparty\GLAD\src;$(SolutionDir)..\Thirdparty\GLAD\include;$(SolutionDir)..\Sources;$(SolutionDir)..\Thirdparty\glfw\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\Thirdparty\glm\include\;$(SolutionDir)..\Thirdparty\stb_image;$(SolutionDir)..\Thirdparty\GLAD\src;$(SolutionDir)..\Thirdparty\GLAD\include;$(SolutionDir)..\Sources;$(SolutionDir)..\Thirdparty\glfw\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -155,7 +155,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\Thirdparty\stb_image;$(SolutionDir)..\Thirdparty\GLAD\src;$(SolutionDir)..\Thirdparty\GLAD\include;$(SolutionDir)..\Sources;$(SolutionDir)..\Thirdparty\glfw\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\Thirdparty\glm\include\;$(SolutionDir)..\Thirdparty\stb_image;$(SolutionDir)..\Thirdparty\GLAD\src;$(SolutionDir)..\Thirdparty\GLAD\include;$(SolutionDir)..\Sources;$(SolutionDir)..\Thirdparty\glfw\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
