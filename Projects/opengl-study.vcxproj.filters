@@ -31,5 +31,8 @@
     <ClInclude Include="..\Sources\Shader.h">
       <Filter>Sources</Filter>
     </ClInclude>
+    <ClInclude Include="..\Thirdparty\stb_image\stb_image.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
