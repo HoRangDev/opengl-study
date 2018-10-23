@@ -34,5 +34,8 @@
     <ClInclude Include="..\Thirdparty\stb_image\stb_image.h">
       <Filter>Sources</Filter>
     </ClInclude>
+    <ClInclude Include="..\Sources\Camera.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

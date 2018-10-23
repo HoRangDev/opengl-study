@@ -23,7 +23,15 @@ public:
    void SetInt( const std::string& name, int value ) const;
    void SetFloat( const std::string& name, float value ) const;
    void SetVec3f( const std::string& name, float x, float y, float z ) const;
+   inline void SetVec3f( const std::string& name, const glm::vec3& vec ) const
+   {
+      SetVec3f( name, vec.x, vec.y, vec.z );
+   }
    void SetVec4f( const std::string& name, float x, float y, float z, float w ) const;
+   inline void SetVec4f( const std::string& name, const glm::vec4& vec ) const
+   {
+      SetVec4f( name, vec.x, vec.y, vec.z, vec.w );
+   }
    void SetMat4f( const std::string& name, const glm::mat4& mat ) const;
 
 private:

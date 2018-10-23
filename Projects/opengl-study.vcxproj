@@ -28,6 +28,7 @@
     <None Include="..\Resources\Shaders\BasicVS.glsl" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Sources\Camera.h" />
     <ClInclude Include="..\Sources\Shader.h" />
     <ClInclude Include="..\Thirdparty\stb_image\stb_image.h" />
   </ItemGroup>
