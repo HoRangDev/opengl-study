@@ -38,3 +38,6 @@
 *.idb
 *.ipdb
 *.iobj
+*.ilk
+*.log
+*.pdb
