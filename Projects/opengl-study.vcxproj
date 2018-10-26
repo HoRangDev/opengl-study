@@ -32,6 +32,11 @@
     <ClInclude Include="..\Sources\Shader.h" />
     <ClInclude Include="..\Thirdparty\stb_image\stb_image.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\Resources\Shaders\SimpleLightLampPS.glsl" />
+    <Text Include="..\Resources\Shaders\SimpleLightPS.glsl" />
+    <Text Include="..\Resources\Shaders\SimpleLightVS.glsl" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{3CF830E3-D2B1-4A7C-BFFE-3FF9AFC5C4AF}</ProjectGuid>
