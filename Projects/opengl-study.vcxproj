@@ -94,14 +94,14 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <LibraryPath>$(SolutionDir)..\Thirdparty\glfw\libs;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(NETFXKitsDir)Lib\um\x64</LibraryPath>
+    <LibraryPath>$(SolutionDir)..\Thirdparty\assimp\libs;$(SolutionDir)..\Thirdparty\glfw\libs;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(NETFXKitsDir)Lib\um\x64</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <LibraryPath>$(SolutionDir)..\Thirdparty\glfw\libs;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(NETFXKitsDir)Lib\um\x64</LibraryPath>
+    <LibraryPath>$(SolutionDir)..\Thirdparty\assimp\libs;$(SolutionDir)..\Thirdparty\glfw\libs;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(NETFXKitsDir)Lib\um\x64</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -125,13 +125,17 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\Thirdparty\glm\include\;$(SolutionDir)..\Thirdparty\stb_image;$(SolutionDir)..\Thirdparty\GLAD\src;$(SolutionDir)..\Thirdparty\GLAD\include;$(SolutionDir)..\Sources;$(SolutionDir)..\Thirdparty\glfw\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\Thidparty\assimp\include;$(SolutionDir)..\Thirdparty\glm\include\;$(SolutionDir)..\Thirdparty\stb_image;$(SolutionDir)..\Thirdparty\GLAD\src;$(SolutionDir)..\Thirdparty\GLAD\include;$(SolutionDir)..\Sources;$(SolutionDir)..\Thirdparty\glfw\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;glfw3d.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>assimp-vc140-mt_d.lib;opengl32.lib;glfw3d.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Message>Copy DLLs</Message>
+      <Command>copy /y "$(SolutionDir)..\Thirdparty\assimp\dlls\DEBUG\assimp-vc140-mt.dll" "$(TargetDir)assimp-vc140-mt.dll"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -161,15 +165,19 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\Thirdparty\glm\include\;$(SolutionDir)..\Thirdparty\stb_image;$(SolutionDir)..\Thirdparty\GLAD\src;$(SolutionDir)..\Thirdparty\GLAD\include;$(SolutionDir)..\Sources;$(SolutionDir)..\Thirdparty\glfw\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\Thidparty\assimp\include;$(SolutionDir)..\Thirdparty\glm\include\;$(SolutionDir)..\Thirdparty\stb_image;$(SolutionDir)..\Thirdparty\GLAD\src;$(SolutionDir)..\Thirdparty\GLAD\include;$(SolutionDir)..\Sources;$(SolutionDir)..\Thirdparty\glfw\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;glfw3.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>assimp-vc140-mt.lib;opengl32.lib;glfw3.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Message>Copy DLLs</Message>
+      <Command>copy /y "$(TargetDir)assimp-vc140-mt.dll" "$(SolutionDir)..\Thirdparty\assimp\dlls\Release\assimp-vc140-mt.dll</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
