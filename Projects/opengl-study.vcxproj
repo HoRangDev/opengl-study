@@ -176,7 +176,7 @@
     </Link>
     <PostBuildEvent>
       <Message>Copy DLLs</Message>
-      <Command>copy /y "$(TargetDir)assimp-vc140-mt.dll" "$(SolutionDir)..\Thirdparty\assimp\dlls\Release\assimp-vc140-mt.dll</Command>
+      <Command>copy /y "$(SolutionDir)..\Thirdparty\assimp\dlls\Release\assimp-vc140-mt.dll" "$(TargetDir)assimp-vc140-mt.dll"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
