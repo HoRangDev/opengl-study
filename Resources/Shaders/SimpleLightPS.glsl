@@ -9,7 +9,8 @@ struct Material
 
 struct Light
 {
-	vec3 position;
+	//vec3 position;
+	vec3 direction;
 
 	vec3 ambient;
 	vec3 diffuse;
@@ -30,7 +31,7 @@ in vec3 FragPos;
 void main()
 {
 	vec3 norm = normalize(Normal);
-	vec3 lightDir = normalize(light.position - FragPos); // Frag to light direction
+	vec3 lightDir = normalize(-light.direction); // Frag to light direction
 	float diff = max(dot(norm, lightDir), 0.0);
 
 	vec3 viewDir = normalize(viewPos - FragPos); // Frag to viewer
