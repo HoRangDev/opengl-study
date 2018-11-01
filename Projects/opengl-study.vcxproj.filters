@@ -45,7 +45,7 @@
     <Text Include="..\Resources\Shaders\SimpleLightPS.glsl">
       <Filter>Shaders</Filter>
     </Text>
-    <Text Include="..\Resources\Shaders\SimpleLightLampPS.glsl">
+    <Text Include="..\Resources\Shaders\SimpleLampPS.glsl">
       <Filter>Shaders</Filter>
     </Text>
   </ItemGroup>
