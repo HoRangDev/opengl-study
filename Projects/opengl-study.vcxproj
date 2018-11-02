@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Sources\Entry.cpp" />
+    <ClCompile Include="..\Sources\Mesh.cpp" />
     <ClCompile Include="..\Sources\Shader.cpp" />
     <ClCompile Include="..\Thirdparty\GLAD\src\glad.c" />
   </ItemGroup>
@@ -29,6 +30,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Sources\Camera.h" />
+    <ClInclude Include="..\Sources\Mesh.h" />
     <ClInclude Include="..\Sources\Shader.h" />
     <ClInclude Include="..\Thirdparty\stb_image\stb_image.h" />
   </ItemGroup>
