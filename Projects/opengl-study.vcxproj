@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="..\Sources\Entry.cpp" />
     <ClCompile Include="..\Sources\Mesh.cpp" />
+    <ClCompile Include="..\Sources\Model.cpp" />
     <ClCompile Include="..\Sources\Shader.cpp" />
     <ClCompile Include="..\Thirdparty\GLAD\src\glad.c" />
   </ItemGroup>
@@ -31,6 +32,7 @@
   <ItemGroup>
     <ClInclude Include="..\Sources\Camera.h" />
     <ClInclude Include="..\Sources\Mesh.h" />
+    <ClInclude Include="..\Sources\Model.h" />
     <ClInclude Include="..\Sources\Shader.h" />
     <ClInclude Include="..\Thirdparty\stb_image\stb_image.h" />
   </ItemGroup>
@@ -127,7 +129,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\Thidparty\assimp\include;$(SolutionDir)..\Thirdparty\glm\include\;$(SolutionDir)..\Thirdparty\stb_image;$(SolutionDir)..\Thirdparty\GLAD\src;$(SolutionDir)..\Thirdparty\GLAD\include;$(SolutionDir)..\Sources;$(SolutionDir)..\Thirdparty\glfw\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\Thirdparty\assimp\include;$(SolutionDir)..\Thirdparty\glm\include\;$(SolutionDir)..\Thirdparty\stb_image;$(SolutionDir)..\Thirdparty\GLAD\src;$(SolutionDir)..\Thirdparty\GLAD\include;$(SolutionDir)..\Sources;$(SolutionDir)..\Thirdparty\glfw\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -167,7 +169,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\Thidparty\assimp\include;$(SolutionDir)..\Thirdparty\glm\include\;$(SolutionDir)..\Thirdparty\stb_image;$(SolutionDir)..\Thirdparty\GLAD\src;$(SolutionDir)..\Thirdparty\GLAD\include;$(SolutionDir)..\Sources;$(SolutionDir)..\Thirdparty\glfw\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\Thirdparty\assimp\include;$(SolutionDir)..\Thirdparty\glm\include\;$(SolutionDir)..\Thirdparty\stb_image;$(SolutionDir)..\Thirdparty\GLAD\src;$(SolutionDir)..\Thirdparty\GLAD\include;$(SolutionDir)..\Sources;$(SolutionDir)..\Thirdparty\glfw\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

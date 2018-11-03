@@ -21,6 +21,9 @@
     <ClCompile Include="..\Sources\Mesh.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
+    <ClCompile Include="..\Sources\Model.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Resources\Shaders\BasicVS.glsl">
@@ -41,6 +44,9 @@
       <Filter>Sources</Filter>
     </ClInclude>
     <ClInclude Include="..\Sources\Mesh.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources\Model.h">
       <Filter>Sources</Filter>
     </ClInclude>
   </ItemGroup>
