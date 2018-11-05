@@ -1,5 +1,4 @@
 #pragma once
-
 #include <stb_image.h>
 
 #include "Mesh.h"
@@ -13,7 +12,7 @@ static unsigned int TextureFromFile( const std::string& textureName, const std::
    glGenTextures( 1, &texture );
 
    int width, height, nrChannels;
-   stbi_set_flip_vertically_on_load( true );
+   //stbi_set_flip_vertically_on_load( true );
    unsigned char* data = stbi_load( fileName.c_str( ), &width, &height, &nrChannels, 0 );
    if ( data != nullptr )
    {
