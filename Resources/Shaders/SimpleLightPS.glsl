@@ -1,9 +1,8 @@
 #version 330 core
 struct Material
 {
-	sampler2D diffuse;
-	sampler2D specular;
-	sampler2D emission;
+	sampler2D texture_diffuse0;
+	sampler2D texture_specular0;
 	float shininess;
 };
 
@@ -49,7 +48,6 @@ out vec4 FragColor;
 
 uniform vec3 viewPos;
 uniform Material material;
-uniform vec2 emissionTexOffset;
 
 uniform DirLight dirLight;
 
@@ -73,9 +71,9 @@ vec3 CalcDirLight(DirLight light, vec3 normal, vec3 viewDir)
 	vec3 reflectDir = reflect(-lightDir, normal);
 	float spec = pow(max(dot(normalize(viewDir), reflectDir), 0.0), material.shininess);
 
-	vec3 ambient = light.ambient * vec3(texture(material.diffuse, TexCoord));
-	vec3 diffuse = light.diffuse * vec3(texture(material.diffuse, TexCoord)) * diff;
-	vec3 specular = light.specular * vec3(texture(material.specular, TexCoord)) * spec;
+	vec3 ambient = light.ambient * vec3(texture(material.texture_diffuse0, TexCoord));
+	vec3 diffuse = light.diffuse * vec3(texture(material.texture_diffuse0, TexCoord)) * diff;
+	vec3 specular = light.specular * vec3(texture(material.texture_specular0, TexCoord)) * spec;
 
 	return (ambient + diffuse + specular);
 }
@@ -141,7 +139,7 @@ void main()
 		result += CalcPointLight(pointLights[idx], FragPos, norm, viewDir);
 	}
 	
-	result += CalcSpotLight(spotLight, FragPos, norm, viewDir);
+	//result += CalcSpotLight(spotLight, FragPos, norm, viewDir);
 
 	FragColor = vec4(result, 1.0f);
 }

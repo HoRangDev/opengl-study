@@ -2,6 +2,10 @@
 #include <string>
 #include <vector>
 
+#include <assimp/Importer.hpp>
+#include <assimp/scene.h>
+#include <assimp/postprocess.h>
+
 #include "glm/glm.hpp"
 #include "Shader.h"
 
@@ -16,6 +20,7 @@ struct Texture
 {
    unsigned int id;
    std::string type;
+   aiString path;
 };
 
 class Mesh
