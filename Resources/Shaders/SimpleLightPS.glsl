@@ -133,7 +133,7 @@ void main()
 	vec3 norm = normalize(Normal);
 	vec3 viewDir = normalize(viewPos - FragPos);
 
-	//result += CalcDirLight(dirLight, norm, viewDir);
+	result += CalcDirLight(dirLight, norm, viewDir);
 
 	for ( int idx = 0; idx < NR_POINT_LIGHTS; ++idx )
 	{

@@ -28,6 +28,8 @@
   <ItemGroup>
     <None Include="..\Resources\Shaders\BasicPS.glsl" />
     <None Include="..\Resources\Shaders\BasicVS.glsl" />
+    <None Include="..\Resources\Shaders\OutlinePS.glsl" />
+    <None Include="..\Resources\Shaders\OutlineVS.glsl" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Sources\Camera.h" />
