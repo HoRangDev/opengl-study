@@ -32,6 +32,9 @@ public:
 
    void Draw(Shader shader);
 
+public:
+   static Mesh CreateQuad( );
+
 private:
    void SetupMesh();
 
