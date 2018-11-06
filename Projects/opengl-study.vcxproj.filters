@@ -60,5 +60,8 @@
     <Text Include="..\Resources\Shaders\SimpleLampPS.glsl">
       <Filter>Shaders</Filter>
     </Text>
+    <Text Include="..\Resources\Shaders\DepthVisualizePS.glsl">
+      <Filter>Shaders</Filter>
+    </Text>
   </ItemGroup>
 </Project>
