@@ -28,6 +28,8 @@
   <ItemGroup>
     <None Include="..\Resources\Shaders\BasicPS.glsl" />
     <None Include="..\Resources\Shaders\BasicVS.glsl" />
+    <None Include="..\Resources\Shaders\FrameBufferScreenPS.glsl" />
+    <None Include="..\Resources\Shaders\FrameBufferScreenVS.glsl" />
     <None Include="..\Resources\Shaders\OutlinePS.glsl" />
     <None Include="..\Resources\Shaders\OutlineVS.glsl" />
     <None Include="..\Resources\Shaders\TransparencyPS.glsl" />

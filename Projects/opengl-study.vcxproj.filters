@@ -41,6 +41,12 @@
     <None Include="..\Resources\Shaders\TransparencyPS.glsl">
       <Filter>Shaders</Filter>
     </None>
+    <None Include="..\Resources\Shaders\FrameBufferScreenVS.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\Resources\Shaders\FrameBufferScreenPS.glsl">
+      <Filter>Shaders</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Sources\Shader.h">
