@@ -72,15 +72,15 @@ void Mesh::Draw(Shader shader)
 Mesh Mesh::CreateQuad( )
 {
    std::vector<Vertex> vertices{ 
-      { glm::vec3( 0.0f, 1.0f, 0.0f ), glm::vec3( 0.0f, 0.0f, 1.0f ),  glm::vec2( 1.0f, 0.0f ) },
+      { glm::vec3( 0.0f, 1.0f, 0.0f ), glm::vec3( 0.0f, 0.0f, 1.0f ),  glm::vec2( 0.0f, 1.0f ) },
    { glm::vec3( 0.0f, 0.0f, 0.0f ), glm::vec3( 0.0f, 0.0f, 1.0f ),  glm::vec2( 0.0f, 0.0f ) },
    { glm::vec3( 1.0f, 0.0f, 0.0f ), glm::vec3( 0.0f, 0.0f, 1.0f ),  glm::vec2( 1.0f, 0.0f ) },
-   { glm::vec3( 1.0f, 1.0f, 0.0f ), glm::vec3( 0.0f, 0.0f, 1.0f ),  glm::vec2( 1.0f, 0.0f ) }
+   { glm::vec3( 1.0f, 1.0f, 0.0f ), glm::vec3( 0.0f, 0.0f, 1.0f ),  glm::vec2( 1.0f, 1.0f ) }
    };
 
    std::vector<unsigned int> indices{
       0,1,2,
-      2,1,0
+      2,3,0
    };
 
    Mesh mesh{ vertices, indices, std::vector<Texture>( ) };
