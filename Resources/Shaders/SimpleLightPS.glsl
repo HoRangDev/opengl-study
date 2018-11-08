@@ -3,6 +3,7 @@ struct Material
 {
 	sampler2D texture_diffuse0;
 	sampler2D texture_specular0;
+	sampler2D texture_ambient0; // Use as reflection map
 	float shininess;
 	vec3 baseColor;
 };
@@ -49,6 +50,7 @@ out vec4 FragColor;
 
 uniform vec3 viewPos;
 uniform Material material;
+uniform samplerCube skybox;
 
 uniform DirLight dirLight;
 
@@ -142,5 +144,8 @@ void main()
 	
 	//result += CalcSpotLight(spotLight, FragPos, norm, viewDir);
 
+	vec3 reflectVec = reflect(-viewDir, norm);
+	vec3 reflectColor = texture(skybox, reflectVec).rgb;
+	reflectColor = reflectColor * texture(material.texture_ambient0, TexCoord).rgb;
 	FragColor = vec4(result, 1.0f);
 }

@@ -93,6 +93,11 @@ Mesh Model::ProcessMesh( aiMesh* mesh, const aiScene* scene )
                                                                 aiTextureType_SPECULAR,
                                                                 "texture_specular" );
       textures.insert( textures.end( ), specularMaps.begin( ), specularMaps.end( ) );
+
+      std::vector<Texture> ambientMaps = LoadMaterialTextures( material,
+                                                               aiTextureType_AMBIENT,
+                                                               "texture_ambient" );
+      textures.insert( textures.end( ), ambientMaps.begin( ), ambientMaps.end( ) );
    }
 
    return Mesh( vertices, indices, textures );
