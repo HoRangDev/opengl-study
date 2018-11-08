@@ -47,6 +47,12 @@
     <None Include="..\Resources\Shaders\FrameBufferScreenPS.glsl">
       <Filter>Shaders</Filter>
     </None>
+    <None Include="..\Resources\Shaders\SkyboxVS.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\Resources\Shaders\SkyboxPS.glsl">
+      <Filter>Shaders</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Sources\Shader.h">

@@ -22,9 +22,9 @@ void main()
 	);
 
 	float kernel[9] = float[](
-	1.0f, 1.0f, 1.0f,
-	1.0f, -8.0f, 1.0f,
-	1.0f, 1.0f, 1.0f
+	0.0f, 0.0f, 0.0f,
+	0.0f, 1.0f, 0.0f,
+	0.0f, 0.0f, 0.0f
 	);
 
 	vec3 sampleTex[9];

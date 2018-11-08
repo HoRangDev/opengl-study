@@ -141,11 +141,6 @@ void main()
 	}
 	
 	//result += CalcSpotLight(spotLight, FragPos, norm, viewDir);
-	vec4 alphaTest = texture(material.texture_diffuse0, TexCoord);
-	if ( alphaTest.a < 0.1 )
-	{
-		discard;
-	}
 
 	FragColor = vec4(result, 1.0f);
 }

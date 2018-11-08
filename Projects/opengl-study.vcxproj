@@ -32,6 +32,8 @@
     <None Include="..\Resources\Shaders\FrameBufferScreenVS.glsl" />
     <None Include="..\Resources\Shaders\OutlinePS.glsl" />
     <None Include="..\Resources\Shaders\OutlineVS.glsl" />
+    <None Include="..\Resources\Shaders\SkyboxPS.glsl" />
+    <None Include="..\Resources\Shaders\SkyboxVS.glsl" />
     <None Include="..\Resources\Shaders\TransparencyPS.glsl" />
   </ItemGroup>
   <ItemGroup>
