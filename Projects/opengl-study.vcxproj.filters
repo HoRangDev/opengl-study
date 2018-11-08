@@ -56,6 +56,9 @@
     <None Include="..\Resources\Shaders\ReflectionPS.glsl">
       <Filter>Shaders</Filter>
     </None>
+    <None Include="..\Resources\Shaders\RefractionPS.glsl">
+      <Filter>Shaders</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Sources\Shader.h">
