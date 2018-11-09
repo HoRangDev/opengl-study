@@ -58,9 +58,12 @@ uniform DirLight dirLight;
 uniform PointLight pointLights[NR_POINT_LIGHTS];
 uniform SpotLight spotLight;
 
-in vec3 Normal;
-in vec2 TexCoord;
-in vec3 FragPos;
+in VSOut
+{
+	vec3 Normal;
+	vec2 TexCoord;
+	vec3 FragPos;
+} psin;
 
 // normal, viewDir => Always be normalized
 vec3 CalcDirLight(DirLight light, vec3 normal, vec3 viewDir)
@@ -74,9 +77,9 @@ vec3 CalcDirLight(DirLight light, vec3 normal, vec3 viewDir)
 	vec3 reflectDir = reflect(-lightDir, normal);
 	float spec = pow(max(dot(normalize(viewDir), reflectDir), 0.0), material.shininess);
 
-	vec3 ambient = light.ambient * (material.baseColor + vec3(texture(material.texture_diffuse0, TexCoord)));
-	vec3 diffuse = light.diffuse * (material.baseColor + vec3(texture(material.texture_diffuse0, TexCoord))) * diff;
-	vec3 specular = light.specular * (material.baseColor + vec3(texture(material.texture_specular0, TexCoord))) * spec;
+	vec3 ambient = light.ambient * (material.baseColor + vec3(texture(material.texture_diffuse0, psin.TexCoord)));
+	vec3 diffuse = light.diffuse * (material.baseColor + vec3(texture(material.texture_diffuse0, psin.TexCoord))) * diff;
+	vec3 specular = light.specular * (material.baseColor + vec3(texture(material.texture_specular0, psin.TexCoord))) * spec;
 
 	return (ambient + diffuse + specular);
 }
@@ -132,20 +135,20 @@ vec3 CalcSpotLight(SpotLight light, vec3 fragPos, vec3 normal, vec3 viewDir)
 void main()
 {
 	vec3 result;
-	vec3 norm = normalize(Normal);
-	vec3 viewDir = normalize(viewPos - FragPos);
+	vec3 norm = normalize(psin.Normal);
+	vec3 viewDir = normalize(viewPos - psin.FragPos);
 
 	result += CalcDirLight(dirLight, norm, viewDir);
 
 	for ( int idx = 0; idx < NR_POINT_LIGHTS; ++idx )
 	{
-		result += CalcPointLight(pointLights[idx], FragPos, norm, viewDir);
+		result += CalcPointLight(pointLights[idx], psin.FragPos, norm, viewDir);
 	}
 	
 	//result += CalcSpotLight(spotLight, FragPos, norm, viewDir);
 
 	vec3 reflectVec = reflect(-viewDir, norm);
 	vec3 reflectColor = texture(skybox, reflectVec).rgb;
-	reflectColor = reflectColor * texture(material.texture_ambient0, TexCoord).rgb;
+	reflectColor = reflectColor * texture(material.texture_ambient0, psin.TexCoord).rgb;
 	FragColor = vec4(result, 1.0f);
 }
