@@ -4,7 +4,7 @@ void Model::Draw(Shader shader)
 {
    for (unsigned int idx = 0; idx < m_meshes.size(); ++idx)
    {
-      m_meshes[idx].Draw(shader);
+      m_meshes[idx].Draw(shader, m_instAmount);
    }
 }
 
@@ -133,4 +133,34 @@ std::vector<Texture> Model::LoadMaterialTextures( aiMaterial* mat, aiTextureType
    }
 
    return textures;
+}
+
+void Model::SetupMeshes( glm::mat4* worldMatrices )
+{
+   glGenBuffers( 1, &m_instVBO );
+   glBindBuffer( GL_ARRAY_BUFFER, m_instVBO );
+   glBufferData( GL_ARRAY_BUFFER, m_instAmount * sizeof( glm::mat4 ), worldMatrices, GL_STATIC_DRAW );
+
+   GLsizei vec4Size = sizeof( glm::vec4 );
+   for ( unsigned int idx = 0; idx < m_meshes.size( ); ++idx )
+   {
+      unsigned int meshVAO = m_meshes[ idx ].GetVAO( );
+      glBindVertexArray( meshVAO );
+
+      glEnableVertexAttribArray( 3 );
+      glVertexAttribPointer( 3, 4, GL_FLOAT, GL_FALSE, 4 * vec4Size, ( void* ) 0 );
+      glEnableVertexAttribArray( 4 );
+      glVertexAttribPointer( 4, 4, GL_FLOAT, GL_FALSE, 4 * vec4Size, ( void* ) (vec4Size) );
+      glEnableVertexAttribArray( 5 );
+      glVertexAttribPointer( 5, 4, GL_FLOAT, GL_FALSE, 4 * vec4Size, ( void* ) (vec4Size*2) );
+      glEnableVertexAttribArray( 6 );
+      glVertexAttribPointer( 6, 4, GL_FLOAT, GL_FALSE, 4 * vec4Size, ( void* ) (vec4Size*3) );
+
+      glVertexAttribDivisor( 3, 1 );
+      glVertexAttribDivisor( 4, 1 );
+      glVertexAttribDivisor( 5, 1 );
+      glVertexAttribDivisor( 6, 1 );   
+
+      glBindVertexArray( 0 );
+   }
 }

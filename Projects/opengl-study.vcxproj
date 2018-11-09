@@ -50,8 +50,8 @@
   <ItemGroup>
     <Text Include="..\Resources\Shaders\DepthVisualizePS.glsl" />
     <Text Include="..\Resources\Shaders\SimpleLampPS.glsl" />
-    <Text Include="..\Resources\Shaders\SimpleLightPS.glsl" />
-    <Text Include="..\Resources\Shaders\SimpleLightVS.glsl" />
+    <Text Include="..\Resources\Shaders\BasicLightPS.glsl" />
+    <Text Include="..\Resources\Shaders\BasicLightVS.glsl" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

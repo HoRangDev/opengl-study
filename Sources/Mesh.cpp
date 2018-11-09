@@ -2,7 +2,7 @@
 
 Mesh::Mesh(const std::vector<Vertex>& vertices,
    const std::vector<unsigned int>& indices,
-   const std::vector<Texture>& textures) :
+   const std::vector<Texture>& textures ) :
    m_vertices(vertices),
    m_indices(indices),
    m_textures(textures)
@@ -39,9 +39,12 @@ void Mesh::SetupMesh()
    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, TexCoords));
 
    glBindVertexArray(0);
+
+   // World Matrix(Instance Data)
+   //glGenBuffers( 1, & )
 }
 
-void Mesh::Draw(Shader shader)
+void Mesh::Draw(Shader shader, unsigned int instAmount)
 {
    unsigned int diffuseNr = 0;
    unsigned int specularNr = 0;
@@ -70,7 +73,8 @@ void Mesh::Draw(Shader shader)
    glActiveTexture(GL_TEXTURE0);
 
    glBindVertexArray(VAO);
-   glDrawElements(GL_TRIANGLES, m_indices.size(), GL_UNSIGNED_INT, 0);
+   glDrawElementsInstanced( GL_TRIANGLES, m_indices.size( ), GL_UNSIGNED_INT, nullptr, instAmount );
+   //glDrawElements(GL_TRIANGLES, m_indices.size(), GL_UNSIGNED_INT, 0);
    glBindVertexArray(0);
 }
 

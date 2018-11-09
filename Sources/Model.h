@@ -54,12 +54,14 @@ static unsigned int TextureFromFile( const std::string& textureName, const std::
 class Model
 {
 public:
-   Model(const std::string& path)
+   Model(const std::string& path, unsigned int instanceAmount, glm::mat4* worldMatrices ) :
+      m_instAmount( instanceAmount )
    {
       LoadModel(path);
+      SetupMeshes( worldMatrices );
    }
 
-   void Draw(Shader shader);
+   void Draw( Shader shader );
 
 private:
    void LoadModel(const std::string& path);
@@ -70,9 +72,13 @@ private:
       aiTextureType type,
       const std::string& typeName);
 
+   void SetupMeshes( glm::mat4* worldMatrices );
+
 private:
    std::vector<Texture> m_loadedTextures;
    std::vector<Mesh> m_meshes;
    std::string       m_directory;
+   unsigned int      m_instAmount;
+   unsigned int      m_instVBO;
 
 };

@@ -28,9 +28,11 @@ class Mesh
 public:
    Mesh(const std::vector<Vertex>& vertices,
       const std::vector<unsigned int>& indices,
-      const std::vector<Texture>& textures);
+      const std::vector<Texture>& textures );
 
-   void Draw(Shader shader);
+   void Draw(Shader shader, unsigned int instAmount);
+
+   unsigned int GetVAO( ) const { return VAO; }
 
 public:
    static Mesh CreateQuad( );
