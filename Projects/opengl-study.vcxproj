@@ -30,6 +30,8 @@
     <None Include="..\Resources\Shaders\BasicVS.glsl" />
     <None Include="..\Resources\Shaders\FrameBufferScreenPS.glsl" />
     <None Include="..\Resources\Shaders\FrameBufferScreenVS.glsl" />
+    <None Include="..\Resources\Shaders\InstancePS.glsl" />
+    <None Include="..\Resources\Shaders\InstanceVS.glsl" />
     <None Include="..\Resources\Shaders\OutlinePS.glsl" />
     <None Include="..\Resources\Shaders\OutlineVS.glsl" />
     <None Include="..\Resources\Shaders\ReflectionPS.glsl" />
