@@ -69,13 +69,15 @@ in VSOut
 vec3 CalcDirLight(DirLight light, vec3 normal, vec3 viewDir)
 {
 	vec3 lightDir = normalize(-light.direction);
+	vec3 halfway = normalize(lightDir + viewDir);
 
 	// Diffuse
 	float diff = max(dot(lightDir, normal), 0.0);
 
 	// Specular
 	vec3 reflectDir = reflect(-lightDir, normal);
-	float spec = pow(max(dot(normalize(viewDir), reflectDir), 0.0), material.shininess);
+	//float spec = pow(max(dot(normalize(viewDir), reflectDir), 0.0), material.shininess); // Phong
+	float spec = pow(max(dot(normal, halfway), 0.0), material.shininess); // Blinn-Phong
 
 	vec3 ambient = light.ambient * (material.baseColor + vec3(texture(material.texture_diffuse0, psin.TexCoord)));
 	vec3 diffuse = light.diffuse * (material.baseColor + vec3(texture(material.texture_diffuse0, psin.TexCoord))) * diff;
