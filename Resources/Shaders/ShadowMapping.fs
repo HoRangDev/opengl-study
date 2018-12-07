@@ -33,24 +33,27 @@ float ShadowCalculation(vec4 fragPosLightSpace, vec3 lightDir, vec3 normal)
     float bias = max(0.05 * (1.0 - dot(normal, lightDir)), 0.005);
     float shadow = 0.0;
     vec2 texelSize = 1.0/textureSize(shadowMap, 0);
-    for( int x = -1; x <= 1; ++x)
+    for( int x = -2; x <= 2; ++x)
     {
-        for (int y=-1; y <= 1; ++y)
+        for (int y=-2; y <= 2; ++y)
         {
             // uv-coordinate
             float pcfDepth = texture(shadowMap, projCoords.xy + vec2(x, y) * texelSize).r;
             shadow += (currentDepth-bias) > pcfDepth ? 1.0 : 0.0;
         }
     }
-    shadow /= 9.0;
+    shadow /= 25.0;
 
     return shadow;
 }
 
 void main()
 {
+    float gamma = 2.4;
     // Blinn-Phong Shading model
-    vec3 color = texture(diffuseTexture, fs_in.TexCoords).rgb;
+    // Gamma collected to Linear! =>
+    // Only Diffuse Texture(other type of texture like normal, ...etcs are already on linear space)
+    vec3 color = pow(texture(diffuseTexture, fs_in.TexCoords).rgb, vec3(gamma));
     vec3 normal = normalize(fs_in.Normal);
     vec3 lightColor = vec3(0.3f);
     vec3 ambient = 0.3 * color;
@@ -69,6 +72,6 @@ void main()
 
     float shadow = ShadowCalculation(fs_in.FragPosLightSpace, lightDir, normal);
     // 만약 Shadow 가 생긴다면 ambient 항만 적용!
-    vec3 lighting = (ambient + (1.0 - shadow) * (diffuse+specular)) * color;
-    FragColor = vec4(lighting, 1.0);    
+    vec3 lighting = (ambient + (1.0 - shadow) * (diffuse+specular)) * color ;
+    FragColor = vec4(pow(lighting, vec3(1/gamma)), 1.0);
 }
