@@ -14,6 +14,7 @@ class Shader
 {
 public:
    Shader( const std::string& vertexPath, const std::string& fragmentPath );
+   Shader( const std::string& vertexPath, const std::string& fargmentPath, const std::string& geometryPath );
 
    void Use( );
 
