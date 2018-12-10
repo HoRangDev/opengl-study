@@ -22,7 +22,7 @@ void main()
     normal = normalize((normal * 2.0) - 1.0);
     normal = normalize(fsin.TBN * normal);
 
-    vec3 color = texture(diffuseMap, fsin.texCoord).rgb;
+    vec3 color = pow(texture(diffuseMap, fsin.texCoord).rgb, vec3(2.4));
     float diffuse = max(0.0, dot(fragToLight, normal));
     vec3 diffuseColor = color * diffuse;
 
@@ -36,4 +36,5 @@ void main()
     vec3 specularColor = vec3(0.2) * specular; // white
 
     FragColor = vec4(ambientColor + diffuseColor + specularColor, 1.0);
+    FragColor = pow(FragColor, vec4(1/2.4));
 }
